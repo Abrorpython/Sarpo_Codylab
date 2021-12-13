@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     #########################################################
     'userapp.apps.UserappConfig',       # apps
     'productapp.apps.ProductappConfig',
+    'kassa.apps.KassaConfig',
 ]
 
 REST_FRAMEWORK = {

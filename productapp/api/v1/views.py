@@ -67,17 +67,6 @@ class CustomView(ModelViewSet):
                          })
 
 
-# for karzinka
-@api_view(['GET'])
-def productListView(request):
-    if request.method == 'GET':
-        product = [1]
-        for i in product:
-            queryset = Product.objects.get(pk=i)
-            serializer = ProductSerializers(queryset, many=True)
-            return Response({'ok': serializer.data})
-
-
 # search Q/R kod bo'yicha
 class SearchQRProduct(ModelViewSet):
     queryset = Product.objects.all()

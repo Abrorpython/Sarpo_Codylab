@@ -30,10 +30,10 @@ class CategorySerializers(serializers.ModelSerializer):
 
 class ProductSerializers(serializers.ModelSerializer):
     class Meta:
+        category = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
         model = Product
         fields = ['id', 'category', 'name', 'amount', 'parametr', 'image', 'qr', 'sel_price',
                   'finish_price', 'date', 'descriptions', 'status']
-        depth = 1
 
     def validate_name(self, value):
         name_query = Product.objects.filter(name=value)

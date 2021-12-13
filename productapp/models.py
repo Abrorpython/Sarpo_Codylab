@@ -10,6 +10,11 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ['-data']
+        verbose_name = "Kategoriya"
+        verbose_name_plural = "Kategoriyalar"
+
 
 def upload_file_name(instance, filename):
     _, ext = os.path.splitext(filename)
@@ -45,7 +50,12 @@ class Product(models.Model):
     data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return f"{str(self.id)} | {self.name}"
+
+    class Meta:
+        ordering = ['-data']
+        verbose_name = 'Mahsulot'
+        verbose_name_plural = 'Mahsulotlar'
 
 
 class Customer(models.Model):
@@ -55,5 +65,10 @@ class Customer(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return f"{str(self.id)} | {self.name}"
+
+    class Meta:
+        ordering = ['-create_at']
+        verbose_name = 'Mijoz'
+        verbose_name_plural = 'Mijozlar'
 
